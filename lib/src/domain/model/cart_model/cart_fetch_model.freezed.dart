@@ -20,17 +20,17 @@ CartModel _$CartModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CartModel {
-  int get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  int get price => throw _privateConstructorUsedError;
-  int get discountPercentage => throw _privateConstructorUsedError;
-  int get rating => throw _privateConstructorUsedError;
-  int get stock => throw _privateConstructorUsedError;
-  String get brand => throw _privateConstructorUsedError;
-  String get category => throw _privateConstructorUsedError;
-  String get thumbnail => throw _privateConstructorUsedError;
-  List<dynamic> get images => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  int? get price => throw _privateConstructorUsedError;
+  int? get discountPercentage => throw _privateConstructorUsedError;
+  int? get rating => throw _privateConstructorUsedError;
+  int? get stock => throw _privateConstructorUsedError;
+  String? get brand => throw _privateConstructorUsedError;
+  String? get category => throw _privateConstructorUsedError;
+  String? get thumbnail => throw _privateConstructorUsedError;
+  List<String>? get images => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,17 +44,17 @@ abstract class $CartModelCopyWith<$Res> {
       _$CartModelCopyWithImpl<$Res, CartModel>;
   @useResult
   $Res call(
-      {int id,
-      String title,
-      String description,
-      int price,
-      int discountPercentage,
-      int rating,
-      int stock,
-      String brand,
-      String category,
-      String thumbnail,
-      List<dynamic> images});
+      {int? id,
+      String? title,
+      String? description,
+      int? price,
+      int? discountPercentage,
+      int? rating,
+      int? stock,
+      String? brand,
+      String? category,
+      String? thumbnail,
+      List<String>? images});
 }
 
 /// @nodoc
@@ -70,63 +70,63 @@ class _$CartModelCopyWithImpl<$Res, $Val extends CartModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? title = null,
-    Object? description = null,
-    Object? price = null,
-    Object? discountPercentage = null,
-    Object? rating = null,
-    Object? stock = null,
-    Object? brand = null,
-    Object? category = null,
-    Object? thumbnail = null,
-    Object? images = null,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? description = freezed,
+    Object? price = freezed,
+    Object? discountPercentage = freezed,
+    Object? rating = freezed,
+    Object? stock = freezed,
+    Object? brand = freezed,
+    Object? category = freezed,
+    Object? thumbnail = freezed,
+    Object? images = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      title: null == title
+              as int?,
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
+              as String?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      price: null == price
+              as String?,
+      price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int,
-      discountPercentage: null == discountPercentage
+              as int?,
+      discountPercentage: freezed == discountPercentage
           ? _value.discountPercentage
           : discountPercentage // ignore: cast_nullable_to_non_nullable
-              as int,
-      rating: null == rating
+              as int?,
+      rating: freezed == rating
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
-              as int,
-      stock: null == stock
+              as int?,
+      stock: freezed == stock
           ? _value.stock
           : stock // ignore: cast_nullable_to_non_nullable
-              as int,
-      brand: null == brand
+              as int?,
+      brand: freezed == brand
           ? _value.brand
           : brand // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: null == category
+              as String?,
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String,
-      thumbnail: null == thumbnail
+              as String?,
+      thumbnail: freezed == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
-              as String,
-      images: null == images
+              as String?,
+      images: freezed == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<String>?,
     ) as $Val);
   }
 }
@@ -140,17 +140,17 @@ abstract class _$$CartModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int id,
-      String title,
-      String description,
-      int price,
-      int discountPercentage,
-      int rating,
-      int stock,
-      String brand,
-      String category,
-      String thumbnail,
-      List<dynamic> images});
+      {int? id,
+      String? title,
+      String? description,
+      int? price,
+      int? discountPercentage,
+      int? rating,
+      int? stock,
+      String? brand,
+      String? category,
+      String? thumbnail,
+      List<String>? images});
 }
 
 /// @nodoc
@@ -164,63 +164,63 @@ class __$$CartModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? title = null,
-    Object? description = null,
-    Object? price = null,
-    Object? discountPercentage = null,
-    Object? rating = null,
-    Object? stock = null,
-    Object? brand = null,
-    Object? category = null,
-    Object? thumbnail = null,
-    Object? images = null,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? description = freezed,
+    Object? price = freezed,
+    Object? discountPercentage = freezed,
+    Object? rating = freezed,
+    Object? stock = freezed,
+    Object? brand = freezed,
+    Object? category = freezed,
+    Object? thumbnail = freezed,
+    Object? images = freezed,
   }) {
     return _then(_$CartModelImpl(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      title: null == title
+              as int?,
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
+              as String?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      price: null == price
+              as String?,
+      price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int,
-      discountPercentage: null == discountPercentage
+              as int?,
+      discountPercentage: freezed == discountPercentage
           ? _value.discountPercentage
           : discountPercentage // ignore: cast_nullable_to_non_nullable
-              as int,
-      rating: null == rating
+              as int?,
+      rating: freezed == rating
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
-              as int,
-      stock: null == stock
+              as int?,
+      stock: freezed == stock
           ? _value.stock
           : stock // ignore: cast_nullable_to_non_nullable
-              as int,
-      brand: null == brand
+              as int?,
+      brand: freezed == brand
           ? _value.brand
           : brand // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: null == category
+              as String?,
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String,
-      thumbnail: null == thumbnail
+              as String?,
+      thumbnail: freezed == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
-              as String,
-      images: null == images
+              as String?,
+      images: freezed == images
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<String>?,
     ));
   }
 }
@@ -229,48 +229,50 @@ class __$$CartModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CartModelImpl implements _CartModel {
   _$CartModelImpl(
-      {required this.id,
-      required this.title,
-      required this.description,
-      required this.price,
-      required this.discountPercentage,
-      required this.rating,
-      required this.stock,
-      required this.brand,
-      required this.category,
-      required this.thumbnail,
-      required final List<dynamic> images})
+      {this.id,
+      this.title,
+      this.description,
+      this.price,
+      this.discountPercentage,
+      this.rating,
+      this.stock,
+      this.brand,
+      this.category,
+      this.thumbnail,
+      final List<String>? images})
       : _images = images;
 
   factory _$CartModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$CartModelImplFromJson(json);
 
   @override
-  final int id;
+  final int? id;
   @override
-  final String title;
+  final String? title;
   @override
-  final String description;
+  final String? description;
   @override
-  final int price;
+  final int? price;
   @override
-  final int discountPercentage;
+  final int? discountPercentage;
   @override
-  final int rating;
+  final int? rating;
   @override
-  final int stock;
+  final int? stock;
   @override
-  final String brand;
+  final String? brand;
   @override
-  final String category;
+  final String? category;
   @override
-  final String thumbnail;
-  final List<dynamic> _images;
+  final String? thumbnail;
+  final List<String>? _images;
   @override
-  List<dynamic> get images {
+  List<String>? get images {
+    final value = _images;
+    if (value == null) return null;
     if (_images is EqualUnmodifiableListView) return _images;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_images);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -332,43 +334,43 @@ class _$CartModelImpl implements _CartModel {
 
 abstract class _CartModel implements CartModel {
   factory _CartModel(
-      {required final int id,
-      required final String title,
-      required final String description,
-      required final int price,
-      required final int discountPercentage,
-      required final int rating,
-      required final int stock,
-      required final String brand,
-      required final String category,
-      required final String thumbnail,
-      required final List<dynamic> images}) = _$CartModelImpl;
+      {final int? id,
+      final String? title,
+      final String? description,
+      final int? price,
+      final int? discountPercentage,
+      final int? rating,
+      final int? stock,
+      final String? brand,
+      final String? category,
+      final String? thumbnail,
+      final List<String>? images}) = _$CartModelImpl;
 
   factory _CartModel.fromJson(Map<String, dynamic> json) =
       _$CartModelImpl.fromJson;
 
   @override
-  int get id;
+  int? get id;
   @override
-  String get title;
+  String? get title;
   @override
-  String get description;
+  String? get description;
   @override
-  int get price;
+  int? get price;
   @override
-  int get discountPercentage;
+  int? get discountPercentage;
   @override
-  int get rating;
+  int? get rating;
   @override
-  int get stock;
+  int? get stock;
   @override
-  String get brand;
+  String? get brand;
   @override
-  String get category;
+  String? get category;
   @override
-  String get thumbnail;
+  String? get thumbnail;
   @override
-  List<dynamic> get images;
+  List<String>? get images;
   @override
   @JsonKey(ignore: true)
   _$$CartModelImplCopyWith<_$CartModelImpl> get copyWith =>

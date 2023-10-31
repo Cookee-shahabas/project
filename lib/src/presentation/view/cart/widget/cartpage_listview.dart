@@ -1,8 +1,17 @@
+import 'package:final_project/src/application/cartPage/bloc/cart_page_bloc_bloc.dart';
+import 'package:final_project/src/domain/model/cart_model/cart_fetch_model.dart';
 import 'package:final_project/src/presentation/core/images/constant_images.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CartPageListPageWidget extends StatelessWidget {
-  CartPageListPageWidget({super.key});
+class CartPageListPageWidget extends StatefulWidget {
+  const CartPageListPageWidget({super.key});
+
+  @override
+  State<CartPageListPageWidget> createState() => _CartPageListPageWidgetState();
+}
+
+class _CartPageListPageWidgetState extends State<CartPageListPageWidget> {
   final List<Map<String, dynamic>> itemsList = [
     {"name": "one", "category": "phone", "price": "20"},
     {"name": "one", "category": "phone", "price": "20"},
@@ -11,42 +20,49 @@ class CartPageListPageWidget extends StatelessWidget {
     {"name": "one", "category": "phone", "price": "20"},
   ];
   @override
+  void initState() {
+    super.initState();
+    context
+        .read<CartPageBlocBloc>()
+        .add(const CartPageBlocEvent.cartpageData());
+  }
+
+  @override
   Widget build(BuildContext context) {
     final ksize = MediaQuery.sizeOf(context);
     return SizedBox(
       height: ksize.height,
-      child: ListView.separated(
-        separatorBuilder: (context, index) {
-          return const SizedBox(
-            height: 25,
-          );
-        },
-        physics: const AlwaysScrollableScrollPhysics(),
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        itemCount: itemsList.length,
-        itemBuilder: (context, index) {
-          return Container(
-            decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(15))),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Image.asset(ConstantImages.image1),
-                ),
-                const SizedBox(
-                  width: 8,
-                ),
-                Expanded(
-                    flex: 2,
-                    child: Column(
+      child: BlocBuilder<CartPageBlocBloc, CartPageBlocState>(
+        builder: (context, state) {
+          List<CartModel> cartData = state.productData;
+          return ListView.separated(
+            separatorBuilder: (context, index) {
+              return const SizedBox(
+                height: 25,
+              );
+            },
+            physics: const AlwaysScrollableScrollPhysics(),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            itemCount: cartData.length,
+            itemBuilder: (context, index) {
+              return Container(
+                decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(15))),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image.asset(ConstantImages.image1),
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          itemsList[index]["name"],
+                          cartData[index].title!,
+                          // itemsList[index]["name"],
                           style: const TextStyle(color: Colors.black),
                         ),
                         SizedBox(
@@ -74,9 +90,11 @@ class CartPageListPageWidget extends StatelessWidget {
                           ],
                         )
                       ],
-                    ))
-              ],
-            ),
+                    )
+                  ],
+                ),
+              );
+            },
           );
         },
       ),

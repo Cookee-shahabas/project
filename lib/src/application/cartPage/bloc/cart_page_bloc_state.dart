@@ -4,11 +4,11 @@ part of 'cart_page_bloc_bloc.dart';
 class CartPageBlocState with _$CartPageBlocState {
   factory CartPageBlocState({
     required Status cartPageState,
-    required CartModel? productData,
+    required List<CartModel> productData,
   }) = _CartPageBlocState;
 
   factory CartPageBlocState.initial() => CartPageBlocState(
         cartPageState: const StatusInitial(),
-        productData: null,
+        productData: [],
       );
 }

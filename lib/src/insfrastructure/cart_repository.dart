@@ -14,7 +14,7 @@ class CartRepository implements ICartRepository {
   Future<CartModel> cartFetchData() async {
     try {
       final response = await api.call.get("?limit=100");
-      log(response.data);
+      log(response.data, name: "inside the response");
       return CartModel.fromJson(response.data);
     } catch (e) {
       rethrow;

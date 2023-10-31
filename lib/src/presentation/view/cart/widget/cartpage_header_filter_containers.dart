@@ -25,7 +25,7 @@ class CartPageFilterContainerWidget extends StatelessWidget {
               height: 15,
               child: Text(
                 containerTitleList[index],
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
               ),
             ),
           );

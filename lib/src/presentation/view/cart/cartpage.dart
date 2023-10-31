@@ -72,7 +72,8 @@ class CartPage extends StatelessWidget {
                     ),
                   ))),
           SliverList(
-              delegate: SliverChildListDelegate([CartPageListPageWidget()])),
+              delegate:
+                  SliverChildListDelegate([const CartPageListPageWidget()])),
           SliverPersistentHeader(
               pinned: true,
               floating: true,

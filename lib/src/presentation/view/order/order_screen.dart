@@ -22,8 +22,8 @@ class OrderScreen extends StatelessWidget {
               height: 50,
             ),
             const Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 20),
-              child:  Text(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
                 "My Bag",
                 style: TextStyle(
                   color: Colors.black,
@@ -34,7 +34,7 @@ class OrderScreen extends StatelessWidget {
             SizedBox(
               height: ksize.height * 0.02,
             ),
-            OrderListViewWidget(),
+            const OrderListViewWidget(),
             const OrderPagePriceContainer()
           ],
         ),
