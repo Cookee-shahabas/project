@@ -1,4 +1,5 @@
 import 'package:final_project/src/presentation/view/order/widget/oderlistviewwidget.dart';
+import 'package:final_project/src/presentation/view/order/widget/orderpricecontainer.dart';
 import 'package:flutter/material.dart';
 
 class OrderScreen extends StatelessWidget {
@@ -9,28 +10,33 @@ class OrderScreen extends StatelessWidget {
     final ksize = MediaQuery.sizeOf(context);
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 241, 241, 241),
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 241, 241, 241),
+        elevation: 0,
+      ),
       body: SizedBox(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 20,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: 100,
-              ),
-              const Text(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 50,
+            ),
+            const Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 20),
+              child:  Text(
                 "My Bag",
-                style: TextStyle(color: Colors.black, fontSize: 35,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 35,
                 ),
               ),
-              SizedBox(
-                height: ksize.height * 0.02,
-              ),
-              OrderListViewWidget()
-            ],
-          ),
+            ),
+            SizedBox(
+              height: ksize.height * 0.02,
+            ),
+            OrderListViewWidget(),
+            const OrderPagePriceContainer()
+          ],
         ),
       ),
     );

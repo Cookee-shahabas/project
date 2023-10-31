@@ -2,6 +2,7 @@ import 'package:final_project/src/presentation/core/widgets/sliver.dart';
 import 'package:final_project/src/presentation/view/cart/widget/cartpage_header_filter_containers.dart';
 import 'package:final_project/src/presentation/view/cart/widget/cartpage_listview.dart';
 import 'package:final_project/src/presentation/view/order/order_screen.dart';
+import 'package:final_project/src/presentation/view/order/widget/orderpricecontainer.dart';
 import 'package:flutter/material.dart';
 
 class CartPage extends StatelessWidget {
@@ -71,7 +72,15 @@ class CartPage extends StatelessWidget {
                     ),
                   ))),
           SliverList(
-              delegate: SliverChildListDelegate([CartPageListPageWidget()]))
+              delegate: SliverChildListDelegate([CartPageListPageWidget()])),
+          SliverPersistentHeader(
+              pinned: true,
+              floating: true,
+              delegate: SliverAppBarDelegate(
+                maxHeight: 100,
+                minHeight: 100,
+                child: const OrderPagePriceContainer(),
+              ))
         ],
       ),
     );
