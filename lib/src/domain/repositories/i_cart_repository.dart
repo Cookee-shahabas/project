@@ -1,6 +1,5 @@
+import 'package:final_project/src/insfrastructure/cart_repository.dart';
 
-import 'package:final_project/src/domain/model/cart_model/cart_fetch_model.dart';
-
-abstract class ICartRepository{
-  Future<CartModel> cartFetchData();
+abstract class ICartRepository {
+  Future<CartModelSample> cartFetchData();
 }

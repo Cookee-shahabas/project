@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CartPageFilterContainerWidget extends StatelessWidget {
-  CartPageFilterContainerWidget({super.key});
+  CartPageFilterContainerWidget({super.key, required this.selectedFilterIndex});
+  final Function(int) selectedFilterIndex;
   final List<String> containerTitleList = [
     "Phones",
     "Laptops",
@@ -9,13 +10,16 @@ class CartPageFilterContainerWidget extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: containerTitleList.length,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemCount: containerTitleList.length,
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: GestureDetector(
+            onTap: () {
+              selectedFilterIndex(index);
+            },
             child: Container(
               alignment: Alignment.center,
               decoration: const BoxDecoration(
@@ -28,9 +32,9 @@ class CartPageFilterContainerWidget extends StatelessWidget {
                 style: const TextStyle(color: Colors.white),
               ),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }

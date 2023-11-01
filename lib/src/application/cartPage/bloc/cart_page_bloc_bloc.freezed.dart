@@ -167,7 +167,7 @@ abstract class _CartPageData implements CartPageBlocEvent {
 /// @nodoc
 mixin _$CartPageBlocState {
   Status get cartPageState => throw _privateConstructorUsedError;
-  List<CartModel> get productData => throw _privateConstructorUsedError;
+  CartModelSample get productData => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CartPageBlocStateCopyWith<CartPageBlocState> get copyWith =>
@@ -180,7 +180,7 @@ abstract class $CartPageBlocStateCopyWith<$Res> {
           CartPageBlocState value, $Res Function(CartPageBlocState) then) =
       _$CartPageBlocStateCopyWithImpl<$Res, CartPageBlocState>;
   @useResult
-  $Res call({Status cartPageState, List<CartModel> productData});
+  $Res call({Status cartPageState, CartModelSample productData});
 }
 
 /// @nodoc
@@ -207,7 +207,7 @@ class _$CartPageBlocStateCopyWithImpl<$Res, $Val extends CartPageBlocState>
       productData: null == productData
           ? _value.productData
           : productData // ignore: cast_nullable_to_non_nullable
-              as List<CartModel>,
+              as CartModelSample,
     ) as $Val);
   }
 }
@@ -220,7 +220,7 @@ abstract class _$$CartPageBlocStateImplCopyWith<$Res>
       __$$CartPageBlocStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Status cartPageState, List<CartModel> productData});
+  $Res call({Status cartPageState, CartModelSample productData});
 }
 
 /// @nodoc
@@ -243,9 +243,9 @@ class __$$CartPageBlocStateImplCopyWithImpl<$Res>
           : cartPageState // ignore: cast_nullable_to_non_nullable
               as Status,
       productData: null == productData
-          ? _value._productData
+          ? _value.productData
           : productData // ignore: cast_nullable_to_non_nullable
-              as List<CartModel>,
+              as CartModelSample,
     ));
   }
 }
@@ -254,18 +254,12 @@ class __$$CartPageBlocStateImplCopyWithImpl<$Res>
 
 class _$CartPageBlocStateImpl implements _CartPageBlocState {
   _$CartPageBlocStateImpl(
-      {required this.cartPageState, required final List<CartModel> productData})
-      : _productData = productData;
+      {required this.cartPageState, required this.productData});
 
   @override
   final Status cartPageState;
-  final List<CartModel> _productData;
   @override
-  List<CartModel> get productData {
-    if (_productData is EqualUnmodifiableListView) return _productData;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_productData);
-  }
+  final CartModelSample productData;
 
   @override
   String toString() {
@@ -279,13 +273,12 @@ class _$CartPageBlocStateImpl implements _CartPageBlocState {
             other is _$CartPageBlocStateImpl &&
             (identical(other.cartPageState, cartPageState) ||
                 other.cartPageState == cartPageState) &&
-            const DeepCollectionEquality()
-                .equals(other._productData, _productData));
+            (identical(other.productData, productData) ||
+                other.productData == productData));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, cartPageState,
-      const DeepCollectionEquality().hash(_productData));
+  int get hashCode => Object.hash(runtimeType, cartPageState, productData);
 
   @JsonKey(ignore: true)
   @override
@@ -298,12 +291,12 @@ class _$CartPageBlocStateImpl implements _CartPageBlocState {
 abstract class _CartPageBlocState implements CartPageBlocState {
   factory _CartPageBlocState(
       {required final Status cartPageState,
-      required final List<CartModel> productData}) = _$CartPageBlocStateImpl;
+      required final CartModelSample productData}) = _$CartPageBlocStateImpl;
 
   @override
   Status get cartPageState;
   @override
-  List<CartModel> get productData;
+  CartModelSample get productData;
   @override
   @JsonKey(ignore: true)
   _$$CartPageBlocStateImplCopyWith<_$CartPageBlocStateImpl> get copyWith =>

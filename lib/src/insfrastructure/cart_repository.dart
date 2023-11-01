@@ -1,23 +1,26 @@
-import 'dart:developer';
-
-import 'package:final_project/app/services/api_service.dart';
-import 'package:final_project/src/domain/model/cart_model/cart_fetch_model.dart';
+import 'dart:convert';
 import 'package:final_project/src/domain/repositories/i_cart_repository.dart';
 import 'package:injectable/injectable.dart';
+import 'package:http/http.dart' as http;
 
 @LazySingleton(as: ICartRepository)
 class CartRepository implements ICartRepository {
-  final Api api;
-  CartRepository(this.api);
+  CartRepository();
 
   @override
-  Future<CartModel> cartFetchData() async {
+  Future<CartModelSample> cartFetchData() async {
     try {
-      final response = await api.call.get("?limit=100");
-      log(response.data, name: "inside the response");
-      return CartModel.fromJson(response.data);
+      final response =
+          await http.get(Uri.parse('https://dummyjson.com/products?limit=100'));
+      final Map<String, dynamic> data = json.decode(response.body);
+      return CartModelSample(items: data);
     } catch (e) {
       rethrow;
     }
   }
+}
+
+class CartModelSample {
+  final Map<String, dynamic> items;
+  CartModelSample({required this.items});
 }
