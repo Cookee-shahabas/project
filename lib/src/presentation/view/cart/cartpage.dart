@@ -13,6 +13,7 @@ class CartPage extends StatefulWidget {
 
 class _CartPageState extends State<CartPage> {
   int selectedFilterIndex = 0;
+  List<Map<String, dynamic>> cartItemsList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +47,9 @@ class _CartPageState extends State<CartPage> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              const OrderScreen()),
+                                          builder: (context) => OrderScreen(
+                                                cartItemsList: cartItemsList,
+                                              )),
                                     );
                                   },
                                   icon: const Icon(
@@ -86,6 +88,11 @@ class _CartPageState extends State<CartPage> {
           SliverList(
               delegate: SliverChildListDelegate([
             CartPageListPageWidget(
+              cartedItemsList: (items) {
+                setState(() {
+                  cartItemsList = items;
+                });
+              },
               selectedFilterIndex: selectedFilterIndex,
             )
           ])),

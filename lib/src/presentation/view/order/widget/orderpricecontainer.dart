@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 
-class OrderPagePriceContainer extends StatelessWidget {
-  const OrderPagePriceContainer({super.key});
+class OrderPagePriceContainer extends StatefulWidget {
+  const OrderPagePriceContainer(
+      {super.key, required this.cartItemsList, required this.totalPrice});
+  final List<Map<String, dynamic>> cartItemsList;
+  final int totalPrice;
+  @override
+  State<OrderPagePriceContainer> createState() =>
+      _OrderPagePriceContainerState();
+}
 
+class _OrderPagePriceContainerState extends State<OrderPagePriceContainer> {
   @override
   Widget build(BuildContext context) {
     final ksize = MediaQuery.sizeOf(context);
@@ -16,9 +24,12 @@ class OrderPagePriceContainer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [Text("Total Amount :"), Text("Price")],
+            children: [
+              const Text("Total Amount :"),
+              Text("\$${widget.totalPrice}")
+            ],
           ),
           SizedBox(
             height: ksize.height * 0.02,

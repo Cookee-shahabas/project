@@ -1,13 +1,30 @@
 import 'package:flutter/material.dart';
 
-class CartPageFilterContainerWidget extends StatelessWidget {
-  CartPageFilterContainerWidget({super.key, required this.selectedFilterIndex});
+class CartPageFilterContainerWidget extends StatefulWidget {
+  const CartPageFilterContainerWidget(
+      {super.key, required this.selectedFilterIndex});
   final Function(int) selectedFilterIndex;
+
+  @override
+  State<CartPageFilterContainerWidget> createState() =>
+      _CartPageFilterContainerWidgetState();
+}
+
+class _CartPageFilterContainerWidgetState
+    extends State<CartPageFilterContainerWidget> {
   final List<String> containerTitleList = [
-    "Phones",
-    "Laptops",
-    "Watches",
+    "All",
+    "Groceries",
+    "SmartPhone",
+    "laptops",
+    "fragrances",
+    "skincare",
+    "home-decoration",
+    "furniture",
   ];
+
+  var selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -18,18 +35,23 @@ class CartPageFilterContainerWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: GestureDetector(
             onTap: () {
-              selectedFilterIndex(index);
+              setState(() {
+                selectedIndex = index;
+                widget.selectedFilterIndex(index);
+              });
             },
             child: Container(
               alignment: Alignment.center,
-              decoration: const BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.all(Radius.circular(20))),
+              decoration: BoxDecoration(
+                  color: selectedIndex == index ? Colors.black : Colors.white,
+                  borderRadius: const BorderRadius.all(Radius.circular(20))),
               padding: const EdgeInsets.symmetric(horizontal: 10),
               height: 15,
               child: Text(
                 containerTitleList[index],
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(
+                    color:
+                        selectedIndex == index ? Colors.white : Colors.black),
               ),
             ),
           ),

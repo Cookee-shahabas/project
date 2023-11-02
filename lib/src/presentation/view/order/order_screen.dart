@@ -2,9 +2,17 @@ import 'package:final_project/src/presentation/view/order/widget/oderlistviewwid
 import 'package:final_project/src/presentation/view/order/widget/orderpricecontainer.dart';
 import 'package:flutter/material.dart';
 
-class OrderScreen extends StatelessWidget {
-  const OrderScreen({super.key});
+class OrderScreen extends StatefulWidget {
+  const OrderScreen({super.key, required this.cartItemsList});
+  final List<Map<String, dynamic>> cartItemsList;
 
+  @override
+  State<OrderScreen> createState() => _OrderScreenState();
+}
+
+int totalPrices = 0;
+
+class _OrderScreenState extends State<OrderScreen> {
   @override
   Widget build(BuildContext context) {
     final ksize = MediaQuery.sizeOf(context);
@@ -34,8 +42,20 @@ class OrderScreen extends StatelessWidget {
             SizedBox(
               height: ksize.height * 0.02,
             ),
-            const OrderListViewWidget(),
-            const OrderPagePriceContainer()
+            OrderListViewWidget(
+              cartItemsList: widget.cartItemsList,
+              totalPrice: (amount) {
+                Future.delayed(Duration.zero, () {
+                  setState(() {
+                    totalPrices = amount;
+                  });
+                });
+              },
+            ),
+            OrderPagePriceContainer(
+              cartItemsList: widget.cartItemsList,
+              totalPrice: totalPrices,
+            )
           ],
         ),
       ),
