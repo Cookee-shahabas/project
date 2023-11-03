@@ -1,10 +1,13 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class OrderListViewWidget extends StatefulWidget {
   OrderListViewWidget(
       {super.key, required this.cartItemsList, required this.totalPrice});
   final List<Map<String, dynamic>> cartItemsList;
-  Function(int) totalPrice;
+  Function(double) totalPrice;
   @override
   State<OrderListViewWidget> createState() => _OrderListViewWidgetState();
 }
@@ -17,7 +20,7 @@ class _OrderListViewWidgetState extends State<OrderListViewWidget> {
     {"name": "one", "category": "phone", "price": "20", "count": 1},
     {"name": "one", "category": "phone", "price": "20", "count": 1},
   ]);
-  int totalPrice = 0;
+  double totalPrice = 0;
   @override
   void initState() {
     super.initState();
@@ -29,7 +32,7 @@ class _OrderListViewWidgetState extends State<OrderListViewWidget> {
 
   @override
   Widget build(BuildContext context) {
-      widget.totalPrice(totalPrice);
+    widget.totalPrice(totalPrice);
     final ksize = MediaQuery.sizeOf(context);
     return Expanded(
       child: widget.cartItemsList.isEmpty
@@ -112,11 +115,98 @@ class _OrderListViewWidgetState extends State<OrderListViewWidget> {
                                       IconButton(
                                           onPressed: () {
                                             setState(() {
+                                              //incrementing the item Count
                                               widget.cartItemsList[index]
                                                   ["count"] += 1;
-                                              totalPrice += int.parse(widget
-                                                  .cartItemsList[index]["price"]
-                                                  .toString());
+                                              //adding the total price
+                                              // totalPrice += int.parse(widget
+                                              //     .cartItemsList[index]["price"]
+                                              //     .toString());
+                                              if (widget.cartItemsList[index]
+                                                      ["category"] ==
+                                                  "smartphones") {
+                                                if (widget.cartItemsList[index]
+                                                        ["count"] >=
+                                                    5) {
+                                                  final discountedPrice =
+                                                      widget.cartItemsList[
+                                                              index]["price"] *
+                                                          0.5;
+                                                  final discountedLastPrice =
+                                                      widget.cartItemsList[
+                                                              index]["price"] -
+                                                          discountedPrice;
+                                                  totalPrice +=
+                                                      discountedLastPrice;
+                                                } else {
+                                                  final discount = widget
+                                                                  .cartItemsList[
+                                                              index][
+                                                          "discountPercentage"] /
+                                                      100;
+                                                  final discountedPrice =
+                                                      widget.cartItemsList[
+                                                              index]["price"] *
+                                                          discount;
+                                                  final discountedLastPrice =
+                                                      widget.cartItemsList[
+                                                              index]["price"] -
+                                                          discountedPrice;
+                                                  totalPrice +=
+                                                      discountedLastPrice;
+                                                }
+                                              } else if (widget
+                                                          .cartItemsList[index]
+                                                      ["category"] ==
+                                                  "laptops") {
+                                                if (widget.cartItemsList[index]
+                                                        ["count"] >=
+                                                    5) {
+                                                  final discountedPrice =
+                                                      widget.cartItemsList[
+                                                              index]["price"] *
+                                                          0.3;
+                                                  final discountedLastPrice =
+                                                      widget.cartItemsList[
+                                                              index]["price"] -
+                                                          discountedPrice;
+                                                  totalPrice +=
+                                                      discountedLastPrice;
+                                                } else {
+                                                  final discount = widget
+                                                                  .cartItemsList[
+                                                              index][
+                                                          "discountPercentage"] /
+                                                      100;
+                                                  final discountedPrice =
+                                                      widget.cartItemsList[
+                                                              index]["price"] *
+                                                          discount;
+                                                  final discountedLastPrice =
+                                                      widget.cartItemsList[
+                                                              index]["price"] -
+                                                          discountedPrice;
+                                                  totalPrice +=
+                                                      discountedLastPrice;
+                                                }
+                                              } else {
+                                                final discount = widget
+                                                                .cartItemsList[
+                                                            index]
+                                                        ["discountPercentage"] /
+                                                    100;
+                                                final discountedPrice =
+                                                    widget.cartItemsList[index]
+                                                            ["price"] *
+                                                        discount;
+                                                final discountedLastPrice =
+                                                    widget.cartItemsList[index]
+                                                            ["price"] -
+                                                        discountedPrice;
+                                                totalPrice +=
+                                                    discountedLastPrice;
+                                              }
+                                              //callback function
                                               widget.totalPrice(totalPrice);
                                             });
                                           },

@@ -10,7 +10,7 @@ class OrderScreen extends StatefulWidget {
   State<OrderScreen> createState() => _OrderScreenState();
 }
 
-int totalPrices = 0;
+double totalPrices = 0;
 
 class _OrderScreenState extends State<OrderScreen> {
   @override

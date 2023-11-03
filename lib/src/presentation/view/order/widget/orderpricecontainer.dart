@@ -4,7 +4,7 @@ class OrderPagePriceContainer extends StatefulWidget {
   const OrderPagePriceContainer(
       {super.key, required this.cartItemsList, required this.totalPrice});
   final List<Map<String, dynamic>> cartItemsList;
-  final int totalPrice;
+  final double totalPrice;
   @override
   State<OrderPagePriceContainer> createState() =>
       _OrderPagePriceContainerState();
